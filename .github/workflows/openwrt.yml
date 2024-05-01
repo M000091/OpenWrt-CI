@@ -20,7 +20,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu 24.04
+    runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -65,7 +65,7 @@ jobs:
           make defconfig
       - name: Download package source code
         run: |
-          make download -j8
+          make download -j2
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
